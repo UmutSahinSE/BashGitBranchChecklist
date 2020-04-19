@@ -76,6 +76,7 @@ function refresh {
             newSaveValue=$(($newSaveValue+$(echo "2^(${selectedItem}-1)" | bc)))
         done
         echo $newSaveValue
+        cd $SCRIPTPATH
         sed -i .bak "s:${branchSettingsLine}:${branch}=${newSaveValue}:g" checklistConfig.txt
         refresh
     else
